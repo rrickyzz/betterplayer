@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:better_player/better_player.dart';
 import 'package:better_player/src/configuration/better_player_controller_event.dart';
 import 'package:better_player/src/core/better_player_utils.dart';
@@ -108,6 +109,8 @@ class _BetterPlayerState extends State<BetterPlayer>
           overlays: _betterPlayerConfiguration.systemOverlaysAfterFullScreen);
       SystemChrome.setPreferredOrientations(
           _betterPlayerConfiguration.deviceOrientationsAfterFullScreen);
+
+      log('systemOverlaysAfterFullScreen: ${_betterPlayerConfiguration.systemOverlaysAfterFullScreen}');
     }
 
     WidgetsBinding.instance.removeObserver(this);
