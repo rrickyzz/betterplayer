@@ -197,15 +197,21 @@ class _BetterPlayerMaterialControlsState
                 height: _controlsConfiguration.controlBarHeight,
                 width: double.infinity,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildBackWidget(),
-                    if (_controlsConfiguration.enablePip)
-                      _buildPipButtonWrapperWidget(
-                          controlsNotVisible, _onPlayerHide)
-                    else
-                      const SizedBox(),
-                    _buildMenuWidget(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        if (_controlsConfiguration.enablePip)
+                          _buildPipButtonWrapperWidget(
+                              controlsNotVisible, _onPlayerHide)
+                        else
+                          const SizedBox(),
+                        _buildMenuWidget(),
+                      ],
+                    ),
                   ],
                 ),
               ),
