@@ -200,7 +200,8 @@ class _BetterPlayerMaterialControlsState
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildBackWidget(),
+                    if (widget.controlsConfiguration.onBackPressed != null)
+                      _buildBackWidget(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -209,7 +210,9 @@ class _BetterPlayerMaterialControlsState
                               controlsNotVisible, _onPlayerHide)
                         else
                           const SizedBox(),
-                        _buildMenuWidget(),
+                        if (widget.controlsConfiguration.onMenuWidgetPressed !=
+                            null)
+                          _buildMenuWidget(),
                       ],
                     ),
                   ],
