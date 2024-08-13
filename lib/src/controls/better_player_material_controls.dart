@@ -211,7 +211,8 @@ class _BetterPlayerMaterialControlsState
                         else
                           const SizedBox(),
                         if (widget.controlsConfiguration.onMenuWidgetPressed !=
-                            null)
+                                null &&
+                            betterPlayerController?.isFullScreen == true)
                           _buildMenuWidget(),
                       ],
                     ),
