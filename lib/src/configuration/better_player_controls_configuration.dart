@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 class BetterPlayerControlsConfiguration {
   ///Color of the control bars
   final Color controlBarColor;
+  final Function? onMenuWidgetPressed;
+  final Function? onBackPressed;
 
   ///Color of texts
   final Color textColor;
@@ -162,6 +164,8 @@ class BetterPlayerControlsConfiguration {
   final Color overflowModalTextColor;
 
   const BetterPlayerControlsConfiguration({
+    this.onBackPressed,
+    this.onMenuWidgetPressed,
     this.controlBarColor = Colors.black87,
     this.textColor = Colors.white,
     this.iconsColor = Colors.white,
@@ -218,6 +222,8 @@ class BetterPlayerControlsConfiguration {
   factory BetterPlayerControlsConfiguration.white() {
     return const BetterPlayerControlsConfiguration(
         controlBarColor: Colors.white,
+        onBackPressed: null,
+        onMenuWidgetPressed: null,
         textColor: Colors.black,
         iconsColor: Colors.black,
         progressBarPlayedColor: Colors.black,
@@ -228,6 +234,8 @@ class BetterPlayerControlsConfiguration {
 
   factory BetterPlayerControlsConfiguration.cupertino() {
     return const BetterPlayerControlsConfiguration(
+      onBackPressed: null,
+      onMenuWidgetPressed: null,
       fullscreenEnableIcon: CupertinoIcons.arrow_up_left_arrow_down_right,
       fullscreenDisableIcon: CupertinoIcons.arrow_down_right_arrow_up_left,
       playIcon: CupertinoIcons.play_arrow_solid,
@@ -240,6 +248,8 @@ class BetterPlayerControlsConfiguration {
   ///Setup BetterPlayerControlsConfiguration based on Theme options.
   factory BetterPlayerControlsConfiguration.theme(ThemeData theme) {
     return BetterPlayerControlsConfiguration(
+      onBackPressed: null,
+      onMenuWidgetPressed: null,
       textColor: theme.textTheme.bodySmall?.color ?? Colors.white,
       iconsColor: theme.buttonTheme.colorScheme?.primary ?? Colors.white,
     );

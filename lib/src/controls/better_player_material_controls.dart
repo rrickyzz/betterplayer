@@ -199,12 +199,13 @@ class _BetterPlayerMaterialControlsState
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
+                    _buildBackWidget(),
                     if (_controlsConfiguration.enablePip)
                       _buildPipButtonWrapperWidget(
                           controlsNotVisible, _onPlayerHide)
                     else
                       const SizedBox(),
-                    _buildMoreButton(),
+                    _buildMenuWidget(),
                   ],
                 ),
               ),
@@ -256,6 +257,32 @@ class _BetterPlayerMaterialControlsState
         }
       },
     );
+  }
+
+  Widget _buildMenuWidget() {
+    return IconButton(
+        onPressed: widget.controlsConfiguration.onMenuWidgetPressed != null
+            ? () {
+                widget.controlsConfiguration.onMenuWidgetPressed!();
+              }
+            : null,
+        icon: Icon(
+          Icons.menu_rounded,
+          color: Colors.white,
+        ));
+  }
+
+  Widget _buildBackWidget() {
+    return IconButton(
+        onPressed: widget.controlsConfiguration.onBackPressed != null
+            ? () {
+                widget.controlsConfiguration.onBackPressed!();
+              }
+            : null,
+        icon: Icon(
+          Icons.arrow_back_rounded,
+          color: Colors.white,
+        ));
   }
 
   Widget _buildMoreButton() {
